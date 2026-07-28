@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=contain">
+<title>hazr. — liens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f4f4f1;
+    --card: #ffffff;
+    --ink: #1c2230;
+    --navy: #2b3a55;
+    --olive: #5b6b4f;
+    --line: #d9dad4;
+    --line-soft: #e6e6e2;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ -webkit-tap-highlight-color: transparent; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      linear-gradient(180deg, rgba(20,24,34,0.32) 0%, rgba(20,24,34,0.52) 42%, var(--bg) 64%),
+      url('hazr-bg.jpg') center top / cover no-repeat fixed;
+    font-family:'Jost', sans-serif;
+    color: var(--ink);
+    display:flex;
+    justify-content:center;
+    padding: 40px 16px 64px;
+  }
+
+  main{
+    width:100%;
+    max-width: 420px;
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    text-align:center;
+    padding: 8px 0 28px;
+  }
+
+  .avatar{
+    width: 116px;
+    height: 116px;
+    margin: 0 auto 22px;
+    border-radius:50%;
+    overflow:hidden;
+    position:relative;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.9), 0 14px 28px -14px rgba(0,0,0,0.55);
+  }
+  .avatar img{
+    width:100%; height:100%;
+    object-fit: cover;
+    object-position: center 28%;
+    display:block;
+  }
+
+  .wordmark{
+    font-family:'Cormorant Garamond', serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 46px;
+    letter-spacing: 3px;
+    margin: 0 0 8px;
+    color: #ffffff;
+    text-shadow: 0 2px 18px rgba(0,0,0,0.35);
+  }
+  .wordmark span{ color: #b9c6a5; }
+
+  .tagline{
+    font-size: 11px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #e7e9e2;
+    margin: 0 0 14px;
+    font-weight: 500;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+  }
+
+  .bio{
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: #f1f2ee;
+    max-width: 300px;
+    margin: 0 auto;
+    font-weight: 300;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.35);
+  }
+
+  /* ---- stitched divider, the brand's woven-label motif ---- */
+  .stitch{
+    border:0;
+    height:1px;
+    margin: 26px auto;
+    width: 100%;
+    background-image: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 11px);
+  }
+
+  /* ---- Links ---- */
+  .links{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .link-row{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background: var(--card);
+    border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--navy);
+    padding: 15px 18px;
+    text-decoration:none;
+    color: var(--ink);
+    transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    overflow:hidden;
+  }
+
+  /* tag-fold corner referencing hazr.'s sewn label detail */
+  .link-row::after{
+    content:"";
+    position:absolute;
+    top:0; right:0;
+    width:16px; height:16px;
+    background:
+      linear-gradient(135deg, transparent 50%, var(--line-soft) 50%);
+  }
+
+  .link-row:hover, .link-row:focus-visible{
+    transform: translateX(4px);
+    border-left-color: var(--olive);
+    box-shadow: 0 10px 22px -16px rgba(28,34,48,0.35);
+    outline: none;
+  }
+  .link-row:focus-visible{
+    box-shadow: 0 0 0 2px var(--navy);
+  }
+
+  .link-icon{
+    width: 20px; height:20px;
+    flex-shrink:0;
+    color: var(--navy);
+  }
+
+  .link-text{ flex:1; min-width:0; }
+  .link-title{
+    font-size: 14.5px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  .link-sub{
+    font-size: 11.5px;
+    color: #7b8090;
+    font-weight:300;
+    margin-top: 1px;
+  }
+
+  .link-arrow{
+    font-family:'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--olive);
+    flex-shrink:0;
+  }
+
+  /* ---- Newsletter ---- */
+  .newsletter{
+    margin-top: 30px;
+    padding: 22px 20px 20px;
+    background: var(--card);
+    border: 1px solid var(--line-soft);
+  }
+  .newsletter-eyebrow{
+    font-size: 10.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--olive);
+    font-weight:500;
+    margin: 0 0 6px;
+  }
+  .newsletter h3{
+    font-family:'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 21px;
+    margin: 0 0 6px;
+  }
+  .newsletter p{
+    font-size: 13px;
+    color:#6b7080;
+    font-weight:300;
+    line-height:1.5;
+    margin: 0 0 16px;
+  }
+
+  form{ display:flex; gap:8px; }
+  input[type="email"]{
+    flex:1;
+    min-width:0;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    padding: 12px 14px;
+    font-family:'Jost', sans-serif;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  input[type="email"]:focus{
+    outline: none;
+    border-color: var(--navy);
+  }
+  button{
+    border:0;
+    background: var(--navy);
+    color:#fff;
+    padding: 0 18px;
+    font-family:'Jost', sans-serif;
+    font-size: 12.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor:pointer;
+    transition: background .18s ease;
+  }
+  button:hover{ background: var(--olive); }
+
+  .newsletter-note{
+    font-size: 11px;
+    color: #9198a6;
+    margin-top: 10px;
+    min-height: 14px;
+  }
+
+  /* ---- Footer label ---- */
+  footer{
+    text-align:center;
+    margin-top: 34px;
+  }
+  .footer-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9198a6;
+  }
+  .footer-tag .dash{
+    width:16px; height:1px;
+    background: var(--line);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .link-row{ transition:none; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <section class="hero">
+    <div class="avatar">
+      <img src="hazr-avatar.jpg" alt="hazr.">
+    </div>
+    <p class="wordmark">hazr<span>.</span></p>
+    <p class="tagline">Modesty in Motion</p>
+    <p class="bio">Prêt-à-porter modeste pensé pour le mouvement — conçu au Maroc, expédié pour toi.</p>
+  </section>
+
+  <hr class="stitch">
+
+  <ul class="links">
+
+    <li>
+      <a class="link-row" href="https://www.instagram.com/hazr.ma" target="_blank" rel="noopener">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg>
+        <span class="link-text">
+          <span class="link-title">Instagram</span>
+          <span class="link-sub">@hazr.ma</span>
+        </span>
+        <span class="link-arrow">→</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="link-row" href="https://www.tiktok.com/@hazr.ma" target="_blank" rel="noopener">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v9.5a3.5 3.5 0 1 1-3-3.46"/><path d="M14 4c.4 2 2 3.6 4 4"/></svg>
+        <span class="link-text">
+          <span class="link-title">TikTok</span>
+          <span class="link-sub">@hazr.ma</span>
+        </span>
+        <span class="link-arrow">→</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="link-row" href="https://www.hazr.store" target="_blank" rel="noopener">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"/></svg>
+        <span class="link-text">
+          <span class="link-title">La boutique</span>
+          <span class="link-sub">hazr.store</span>
+        </span>
+        <span class="link-arrow">→</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="link-row" href="https://wa.me/message/5NZ7VP4FJHORJ1" target="_blank" rel="noopener">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12a8 8 0 1 1-3.7-6.7"/><path d="M20 4l-8 8"/><path d="M8.5 10.5c.3 2 2 3.7 4 4l1-1.2c.2-.2.5-.3.8-.2l1.7.7c.3.1.5.4.5.7v1.4c0 .5-.4.9-.9.9-4 0-8-4-8-8 0-.5.4-.9.9-.9h1.4c.3 0 .6.2.7.5l.7 1.7c.1.3 0 .6-.2.8l-.6.6z" fill="currentColor" stroke="none" opacity="0"/><path d="M8.2 9.8c.3 2.6 2.4 4.7 5 5l1.1-1.3c.2-.2.5-.3.8-.2l1.9.8c.3.1.5.4.5.8v1.5c0 .6-.5 1-1 1-4.7 0-8.5-3.8-8.5-8.5 0-.5.4-1 1-1H10c.4 0 .7.2.8.5l.8 1.9c.1.3 0 .6-.2.8l-1.2 1z"/></svg>
+        <span class="link-text">
+          <span class="link-title">WhatsApp</span>
+          <span class="link-sub">Commandes & questions</span>
+        </span>
+        <span class="link-arrow">→</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="link-row" href="mailto:hazr.contact@gmail.com">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <span class="link-text">
+          <span class="link-title">Email</span>
+          <span class="link-sub">hazr.contact@gmail.com</span>
+        </span>
+        <span class="link-arrow">→</span>
+      </a>
+    </li>
+
+  </ul>
+
+  <div class="newsletter">
+    <p class="newsletter-eyebrow">Liste privée</p>
+    <h3>Reste dans le fil</h3>
+    <p>Sorties de collection, restocks et coulisses — avant tout le monde.</p>
+    <form id="subscribeForm">
+      <input type="email" id="subscribeEmail" placeholder="ton email" required>
+      <button type="submit">S'inscrire</button>
+    </form>
+    <p class="newsletter-note" id="subscribeNote"></p>
+  </div>
+
+  <footer>
+    <span class="footer-tag"><span class="dash"></span>hazr. — tissé avec soin<span class="dash"></span></span>
+  </footer>
+
+</main>
+
+<script>
+  // No backend on a static page: capture the intent via a pre-filled email
+  // to hazr.contact@gmail.com so every signup still reaches you.
+  document.getElementById('subscribeForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('subscribeEmail').value.trim();
+    var note = document.getElementById('subscribeNote');
+    if(!email){ return; }
+    var subject = encodeURIComponent('Inscription newsletter hazr.');
+    var body = encodeURIComponent('Merci de m\'ajouter à la liste hazr. avec cet email : ' + email);
+    window.location.href = 'mailto:hazr.contact@gmail.com?subject=' + subject + '&body=' + body;
+    note.textContent = 'Ton client mail s\'ouvre pour confirmer ton inscription.';
+  });
+</script>
+
+</body>
+</html>
